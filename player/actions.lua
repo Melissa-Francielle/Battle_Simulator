@@ -1,3 +1,4 @@
+local utils = require("utils")
 local actions = {}
 
 actions.list = {}
@@ -16,10 +17,12 @@ function actions.build()
             local damage = math.max(1, math.ceil(rawDamage))
             
             if sucess then
-                print(string.format("A criatura recebeu danos (%d)", damage))
                 creatureData.health = creatureData.health - damage
+                print(string.format("%s atacou a criatura e ela recebeu danos (%d)", playerData.name, damage))
+                local healthRate = math.floor(creatureData.health / creatureData.maxHealth* 10)
+                print(string.format("%s: %s", creatureData.name, utils.getProgressBar(healthRate)))
             else
-                print("O ataque não causou danos na criatura")
+                print(string.format("%s tentou atacar, mas o ataque não causou danos na criatura", playerData.name))
             end
         end     
     }
@@ -34,11 +37,12 @@ function actions.build()
 
             local regenPotions = 5
             playerData.health = math.max(playerData.maxHealth, playerData.health + regenPotions)        
-            print(string.format("A poção regenerou alguns pontos de vida!"))
+            print(string.format(" %s tomou poção e regenerou alguns pontos de vida!", playerData.name))
         end
     }
 
     actions.list[#actions.list + 1] = swordAttack
+    actions.list[#actions.list + 1] = regenPotion
 end
 
 --- comment
