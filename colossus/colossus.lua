@@ -10,10 +10,10 @@ colossus.description = [[
 |tudo em seu caminho com um único golpe."                         |
 |]]
 
-colossus.maxHealth = 20
-colossus.health = 20
+colossus.maxHealth = 10
+colossus.health = 10
 colossus.attack = 5
 colossus.defense = 6
-colossus.speed = 1
+colossus.speed = 2
 
 return colossus
