@@ -91,4 +91,30 @@ function utils.ask()
     return answer
     
 end
+
+--- 
+--- @return any
+function utils.battleFinilization(playerCreature, bossCreature)
+    if playerCreature.health <= 0 then
+    print()
+    print(" _________________________________________________________________")
+    print("|_________________________________________________________________|")
+    print("|____________________________".."DERROTADO".."____________________________|")
+    print("|".. "\t\t\t\t\t\t\t\t  |")
+    print("|" .. "\t Infelizmente, você foi derrotado pelo Colosso.".. "\t\t  |")
+    print("|" .. "\t Continue treinando e aprimorando suas habilidades.".. "\t  |")
+    print("|" .. "_________________________________________________________________|")
+end
+
+if bossCreature.health <= 0 then
+    print()
+    print(" _________________________________________________________________")
+    print("|_________________________________________________________________|")
+    print("|____________________________".."VITÓRIA".."____________________________|")
+    print("|".. "\t\t\t\t\t\t\t\t  |")
+    print("|" .. "\t Parabéns, você derrotou o Colosso!".. "\t\t  |")
+    print("|" .. "\t Continue assim e conquiste mais batalhas!".. "\t  |")
+    print("|" .. "_________________________________________________________________|")
+end
+end
 return utils 
